@@ -1,0 +1,8 @@
+msgid "Control"
+msgstr "管控"
+
+msgid "timecontrol"
+msgstr "时长控制"
+
+msgid "Time control"
+msgstr "时长控制"
