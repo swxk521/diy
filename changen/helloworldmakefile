@@ -77,7 +77,7 @@ endchoice
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Kcptun
 	bool "Include Kcptun"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Hysteria
 	bool "Include Hysteria"
@@ -106,12 +106,10 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Libev_Server
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Rust_Client
 	bool "Include Shadowsocks Rust Client"
-	depends on aarch64||arm||i386||mips||mipsel||x86_64
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Rust_Server
 	bool "Include Shadowsocks Rust Server"
-	depends on aarch64||arm||i386||mips||mipsel||x86_64
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Libev_Client
@@ -133,7 +131,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
 	bool "Include Shadowsocks V2ray Plugin"
-	default y
+	default n
 endef
 
 define Package/$(PKG_NAME)/conffiles
