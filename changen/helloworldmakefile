@@ -131,7 +131,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
 	bool "Include Shadowsocks V2ray Plugin"
-	default n
+	default y
 endef
 
 define Package/$(PKG_NAME)/conffiles
