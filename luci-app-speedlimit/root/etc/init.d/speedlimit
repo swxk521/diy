@@ -5,8 +5,8 @@
 START=86
 
 del_tc() {
-	tc qdisc del dev br-lan default 2>/dev/null
-	tc qdisc del dev br-lan_ifb default 2>/dev/null
+	tc qdisc del dev br-lan root 2>/dev/null
+	tc qdisc del dev br-lan_ifb root 2>/dev/null
 	tc qdisc del dev br-lan ingress 2>/dev/null
 	ip link del dev br-lan_ifb 2>/dev/null
 }
@@ -78,8 +78,8 @@ add_rule_mac() {
 	cnt="$((cnt + 1))"
 }
 
-add_htb_default() {
-	tc qdisc add dev "$1" default handle 1:0 htb default 1
+add_htb_root() {
+	tc qdisc add dev "$1" root handle 1:0 htb default 1
 	tc class add dev "$1" parent 1:0 classid 1:1 htb rate 80gbit prio 0 quantum 1500
 	tc filter add dev "$1" parent 1:0 protocol ipv4 prio 1 u32 match ip dst 224.0.0.0/4 flowid 1:1
 	tc filter add dev "$1" parent 1:0 protocol ipv4 prio 1 u32 match ip dst 240.0.0.0/4 flowid 1:1
@@ -94,8 +94,8 @@ start() {
 		del_tc
 		ip link add dev br-lan_ifb name br-lan_ifb type ifb
 		ip link set dev br-lan_ifb up
-		add_htb_default br-lan
-		add_htb_default br-lan_ifb
+		add_htb_root br-lan
+		add_htb_root br-lan_ifb
 		tc qdisc add dev br-lan ingress
 		tc filter add dev br-lan parent ffff: protocol all prio 2 u32 match u32 0 0 flowid 1:1 action mirred egress redirect dev br-lan_ifb
 		enablesum=$(grep -c 'usrlimit' /etc/config/speedlimit | awk '{print $1-1}')
