@@ -2,6 +2,6 @@
 config wrtbwmon 'general'
 	option enabled '1'
 	option bdwup '3M'
-	option bdwdown '300M'
+	option bdwdown '30M'
 	option path '/tmp/usage.db'
 
