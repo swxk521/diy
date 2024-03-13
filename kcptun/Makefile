@@ -45,7 +45,6 @@ This package only contains kcptun $(1).
   endef
 endef
 
-$(eval $(call BuildPackage,kcptun-config))
 KCPTUN_COMPONENTS:=server client
 $(foreach component,$(KCPTUN_COMPONENTS), \
   $(eval $(call Package/kcptun/Default,$(component))) \
