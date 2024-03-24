@@ -162,17 +162,14 @@ EOF
 
 container_build(){
   green " \n Docker build and run \n "
-	
-  # 安装 docker,拉取镜像 + 创建容器,如已经安装容器，先删除旧的
-  ! systemctl is-active docker >/dev/null 2>&1 && green "\n Install docker \n" && curl -sSL get.docker.com | sh
-  ! systemctl is-active docker >/dev/null 2>&1 && ( systemctl enable --now docker; sleep 2 )
+  
   if [ "$(docker ps -aqf "name=wgcf" | wc -l)" != 0 ]; then
     green "\n Remove the old wgcf container \n"
     docker rm -f wgcf
     docker images -q --filter "reference=fscarmen/netflix_unlock" | xargs docker rmi
   fi
   green  "\n Install wgcf unlock container \n"
-  docker run -dit --restart=always \
+  docker run -dit --restart=always -p 127.0.0.1:40000:40000 \
   --name wgcf \
   --sysctl net.ipv6.conf.all.disable_ipv6=0 \
   --device /dev/net/tun --privileged \
