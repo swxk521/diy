@@ -2,7 +2,7 @@ module("luci.controller.timecontrol", package.seeall)
 
 function index()
     if not nixio.fs.access("/etc/config/timecontrol") then return end
-    entry({"admin", "services", "timecontrol"}, cbi("timecontrol"), _("Internet Time Control"), 120).dependent = true
+    entry({"admin", "services", "timecontrol"}, cbi("timecontrol"), _("Internet Time Control"), 130).dependent = true
     entry({"admin", "services", "timecontrol", "status"}, call("status")).leaf = true
 end
 
