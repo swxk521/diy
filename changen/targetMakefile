@@ -10,7 +10,7 @@ BOARDNAME:=x86
 FEATURES:=squashfs vdi vmdk vhdx pcmcia fpu boot-part rootfs-part
 SUBTARGETS:=64 generic legacy geode 
 
-KERNEL_PATCHVER:=5.15
+KERNEL_PATCHVER:=6.1
 KERNEL_TESTING_PATCHVER:=6.6
 
 KERNELNAME:=bzImage
@@ -26,7 +26,7 @@ block-mount kmod-fs-exfat kmod-fs-ext4 kmod-fs-vfat libblkid kmod-usb-storage km
 adb rclone tcpdump ipv6helper UDPspeeder udp2raw iperf3-ssl kmod-tcp-bbr \
 luci-app-fileassistant luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts_cloudflare.com-v4 \
 luci-app-socat luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard luci-app-wrtbwmon wrtbwmon \
-luci-app-timecontrol luci-app-cowbping luci-app-usb-printer luci-app-passwall2 luci-theme-bootstrap-mod \
+luci-app-timecontrol luci-app-cowbping luci-app-usb-printer luci-app-passwall luci-theme-bootstrap-mod \
 frps frpc kcptun-client kcptun-server openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia
 
 $(eval $(call BuildTarget))
