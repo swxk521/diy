@@ -38,7 +38,7 @@ P_G() {
 		f="重启系统"
 		;;
 	2)
-		/sbin/ifup wan
+		ifdown wan && sleep 3 && ifup wan
 		f="重新拨号"
 		;;
 	3)
