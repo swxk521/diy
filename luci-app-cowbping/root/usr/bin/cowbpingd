@@ -43,7 +43,7 @@ P_G() {
 		;;
 	3)
 		kill -9 $(busybox ps |grep 'cbp_cmd' |grep -v 'grep' |awk '{print $1}')
-		[ -s /etc/config/cbp_cmd ] && bash /etc/config/cbp_cmd &
+		[ -s /etc/config/cbp_cmd ] && sh /etc/config/cbp_cmd &
 		f="自定义命令---`cat /etc/config/cbp_cmd`---"
 		;;
 	esac
