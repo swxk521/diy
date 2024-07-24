@@ -64,8 +64,6 @@ G_E() {
 
 log "开始运行"
 G_E
-ERRS=0
-CYLS=0
 while :
 do
 	P_G
