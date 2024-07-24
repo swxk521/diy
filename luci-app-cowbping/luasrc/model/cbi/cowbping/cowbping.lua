@@ -46,7 +46,7 @@ work_mode:value("3", translate("3.shell命令"))
 work_mode.default = 2
 
 command = s:option(TextValue, "/etc/config/cbp_cmd", translate("shell脚本"), 
-translate("* 应用前需仔细检查脚本语法，如存在语法错误会导致所有命令无法执行，可终端执行bash -n /etc/config/cbp_cmd检查。"))
+translate("* 应用前需仔细检查脚本语法，如存在语法错误会导致所有命令无法执行，可终端执行sh -n /etc/config/cbp_cmd检查。"))
 command:depends("work_mode", 3)
 command.rows = 10
 command.wrap = "off"
