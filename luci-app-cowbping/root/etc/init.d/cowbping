@@ -14,22 +14,17 @@ start_instance() {
 }
 
 start_service() {
- [ -f /var/lock/cowbping ] && exit
+ stop_service
  enabled=$(uci -q get cowbping.cowbping.enabled)
  if [ "$enabled" == 1 ]; then
-   touch /var/lock/cowbping
    cat /dev/null > /tmp/log/cowbping.log
    start_instance
-   rm -f /var/lock/cowbping
  fi
 }
 
-service_triggers() {
- procd_add_reload_trigger 'cowbping'
-}
-
 stop_service() {
- kill -9 $(busybox ps |egrep 'cbp_cmd|cowbpingd' |grep -v 'grep' |awk '{print $1}') >/dev/null 2>&1
+  cat /dev/null > /tmp/log/cowbping.log
+  kill -9 $(busybox ps |egrep 'cbp_cmd|cowbpingd' |grep -v 'grep' |awk '{print $1}') >/dev/null 2>&1
 }
 
 restart() {
