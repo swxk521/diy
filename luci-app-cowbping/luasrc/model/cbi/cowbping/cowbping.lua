@@ -42,7 +42,7 @@ pkgdelay.default=300
 work_mode = s:option(ListValue, "work_mode", translate("执行动作"))
 work_mode:value("1", translate("1.重启系统"))
 work_mode:value("2", translate("2.重新拨号"))
-work_mode:value("3", translate("4.shell命令"))
+work_mode:value("3", translate("3.shell命令"))
 work_mode.default = 2
 
 command = s:option(TextValue, "/etc/config/cbp_cmd", translate("shell脚本"), 
