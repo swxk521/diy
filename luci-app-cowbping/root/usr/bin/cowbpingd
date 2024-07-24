@@ -42,10 +42,6 @@ P_G() {
 		f="重新拨号"
 		;;
 	3)
-		/etc/init.d/network restart
-		f="重启网络"
-		;;
-	4)
 		kill -9 $(busybox ps |grep 'cbp_cmd' |grep -v 'grep' |awk '{print $1}')
 		[ -s /etc/config/cbp_cmd ] && bash /etc/config/cbp_cmd &
 		f="自定义命令---`cat /etc/config/cbp_cmd`---"
