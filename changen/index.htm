@@ -34,6 +34,25 @@
 
 	local has_dsl = fs.access("/etc/init.d/dsl_control")
 
+local function online_data()
+	local rv = { }
+	local fd = util.execi('/usr/bin/awk \'BEGIN{while ((getline < "/tmp/dhcp.leases") > 0){a[$2]=$4;}while ((getline < "/proc/net/arp") > 0){if (!a[$4]){a[$4]="\?";}if (match($3,"0x[26]")){"ping -q -c 1 "$1" &";if (b[$4]){b[$4]=b[$4]"/"$1;}else{b[$4]=$1;}c[$4]=$6;}}while (("ip -6 neighbor show | grep -v fe80" | getline) > 0){if (b[$5]) {"ping -q -c 1 "$1" &";b[$5]=b[$5]"/"$1;}}for (mac in b){print(a[mac],b[mac],mac,c[mac]);}}\' ')
+	while true do
+		local ln = fd()
+		if ln == nil then break end
+		local name,ip,mac,dev = ln:match("^(%S+) (%S+) (%S+) (%S+)")
+		if mac and ip and name and dev then
+			rv[#rv+1] = {
+				hostname = name,
+				device  = dev,
+				macaddr  = mac,
+				ipaddr   = ip
+			}
+		end
+	end
+	return rv
+end
+
 	if luci.http.formvalue("status") == "1" then
 		local ntm = require "luci.model.network".init()
 		local wan = ntm:get_wannet()
@@ -55,6 +74,7 @@
 		local cpu_usage = (luci.sys.exec("expr 100 - $(top -n 1 | grep -E '^CPU:' | awk -F '%' '{print$4}' | awk -F ' ' '{print$2}' | awk '{print int($1 + 0.5)}')") or "6") .. "%"
 
 		local rv = {
+onlines    = online_data(),
 			cpuusage    = cpu_usage,
 			cpuinfo    = cpu_info,
 			ethinfo    = eth_info,
@@ -389,6 +409,33 @@
 					'<img src="<%=resource%>/icons/ethernet.png" />' +
 					'<br /><small>DSL</small>'
 				);
+			<% end %>
+
+			<% if online_data() then %>
+			var lsdiy = document.getElementById('online_status_table');
+			if (lsdiy)
+			{
+				/* clear all rows */
+				while( lsdiy.rows.length > 1 )
+					lsdiy.rows[0].parentNode.deleteRow(1);
+				for( var i = 0; i < info.onlines.length; i++ )
+				{
+					var tr = lsdiy.rows[0].parentNode.insertRow(-1);
+						tr.className = 'cbi-section-table-row cbi-rowstyle-' + ((i % 2) + 1);
+					tr.insertCell(-1).innerHTML = info.onlines[i].hostname ? info.onlines[i].hostname : '?';
+					tr.insertCell(-1).innerHTML = info.onlines[i].ipaddr.split("/").join("<br>");
+					tr.insertCell(-1).innerHTML = info.onlines[i].macaddr;
+					tr.insertCell(-1).innerHTML = info.onlines[i].device;
+				}
+				if( lsdiy.rows.length == 1 )
+				{
+					var tr = lsdiy.rows[0].parentNode.insertRow(-1);
+						tr.className = 'cbi-section-table-row';
+					var td = tr.insertCell(-1);
+						td.colSpan = 4;
+						td.innerHTML = '<em><br /><%:There is no one online now.%></em>';
+				}
+			}
 			<% end %>
 
 			<% if has_dhcp then %>
@@ -796,8 +843,19 @@
 			</tr></table>
 		</td></tr>
 		<% end %>
-		<tr><td width="33%"><%:Online Users%></td><td id="userinfo">0</td></tr>
 		<tr><td width="33%"><%:Active Connections%></td><td id="conns">-</td></tr>
+		<tr><td width="33%"><%:Online Users%></td><td id="userinfo">0</td></tr>
+	</table>
+	<table class="cbi-section-table" id="online_status_table">
+		<tr class="cbi-section-table-titles">
+			<th class="cbi-section-table-cell"><%:Hostname%></th>
+			<th class="cbi-section-table-cell"><%:IPv4-Address%></th>
+			<th class="cbi-section-table-cell"><%:MAC-Address%></th>
+			<th class="cbi-section-table-cell"><%:Interface%></th>
+		</tr>
+		<tr class="cbi-section-table-row">
+			<td colspan="4"><em><br /><%:Collecting data...%></em></td>
+		</tr>
 	</table>
 </fieldset>
 
