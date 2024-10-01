@@ -61,8 +61,8 @@ DEFAULT_PACKAGES.router:=\
 	adb rclone tcpdump ipv6helper UDPspeeder udp2raw iperf3-ssl \
 	luci-app-fileassistant luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts_cloudflare.com-v4 \
 	luci-app-socat luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
-	luci-app-timecontrol luci-app-cowbping luci-app-passwall2 luci-theme-bootstrap-mod luci-app-statistics \
-	frps frpc kcptun-client kcptun-server openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia luci-app-vnstat nginx-ssl msd_lite
+	luci-app-timecontrol luci-app-cowbping luci-app-passwall2 luci-theme-bootstrap-mod luci-app-statistics luci-app-nlbwmon \
+	frps frpc kcptun-client kcptun-server openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia nginx-ssl msd_lite
 
 ifneq ($(DUMP),)
   all: dumpinfo
