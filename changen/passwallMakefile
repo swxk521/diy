@@ -41,7 +41,7 @@ menu "Configuration"
 config PACKAGE_$(PKG_NAME)_INCLUDE_IPv6_Nat
 	depends on PACKAGE_ip6tables
 	bool "Include IPv6 Nat"
-	default n
+	default y
 
 if PACKAGE_$(PKG_NAME)
 
