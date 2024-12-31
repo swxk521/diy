@@ -56,11 +56,11 @@ DEFAULT_PACKAGES.router:=\
 	dnsmasq-full firewall iptables ppp ppp-mod-pppoe odhcp6c odhcpd-ipv6only ip6tables libip6tc kmod-ipt-nat6 \
 	block-mount kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw kmod-tun \
 	iptables-mod-tproxy iptables-mod-extra ipset ip-full default-settings luci luci-proto-ipv6 curl ca-certificates \
-	wget fdisk lsblk htop adb rclone tcpdump UDPspeeder udp2raw iperf3-ssl \
+	wget fdisk lsblk htop adb tcpdump iperf3-ssl \
 	luci-app-fileassistant luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts-cloudflare \
-	luci-app-lucky luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
+	luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
 	luci-app-timecontrol luci-app-cowbping luci-app-passwall2 luci-theme-bootstrap-mod luci-app-nlbwmon luci-app-statistics \
-	frps frpc kcptun-client kcptun-server openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia nginx-ssl luci-app-msd_lite luci-app-eqosplus luci-app-dockerman
+	openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia luci-app-msd_lite luci-app-eqosplus luci-app-dockerman
 
 ifneq ($(DUMP),)
   all: dumpinfo
