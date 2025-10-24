@@ -23,7 +23,7 @@ DEFAULT_PACKAGES += fdisk mkf2fs partx-utils kmod-button-hotplug kmod-e1000e kmo
 		    kmod-usb-net-asix kmod-usb-net-asix-ax88179 kmod-usb-net-rtl8150 \
 		    kmod-usb-net-rtl8152-vendor grub2-bios-setup i915-firmware-dmc \
 		    automount autocore \
-		    wget curl bind-host lsblk htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr openssh-sftp-server zoneinfo-core zoneinfo-asia \
+		    wget-ssl curl bind-host lsblk htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr openssh-sftp-server zoneinfo-core zoneinfo-asia \
 		    luci-app-ddns ddns-scripts-aliyun ddns-scripts-dnspod ddns-scripts-cloudflare \
 		    luci-app-filemanager luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-proto-wireguard luci-app-natmap luci-app-msd_lite \
 		    luci-app-passwall2 luci-app-nlbwmon luci-app-sqm luci-app-dockerman \
