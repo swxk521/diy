@@ -25,7 +25,7 @@ DEFAULT_PACKAGES += fdisk mkf2fs partx-utils kmod-button-hotplug kmod-e1000e kmo
 		    automount autocore \
 		    wget curl bind-host lsblk htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr openssh-sftp-server zoneinfo-core zoneinfo-asia \
 		    luci-app-ddns ddns-scripts-aliyun ddns-scripts-dnspod ddns-scripts-cloudflare \
-		    luci-app-filemanager luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-proto-wireguard luci-app-natmap \
+		    luci-app-filemanager luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-proto-wireguard luci-app-natmap luci-app-msd_lite \
 		    luci-app-passwall2 luci-app-nlbwmon luci-app-sqm luci-app-dockerman \
 		    luci-app-eqosplus luci-app-taskplan luci-app-nft-timecontrol luci-app-onliner
 
