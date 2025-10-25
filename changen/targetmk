@@ -60,7 +60,7 @@ DEFAULT_PACKAGES.router:=\
 	luci-app-fileassistant luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts-cloudflare \
 	luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
 	luci-app-timecontrol luci-app-cowbping luci-app-passwall2 luci-theme-bootstrap-mod \
-	openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia luci-app-dockerman luci-app-eqosplus luci-app-bandix
+	openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia luci-app-dockerman luci-app-eqosplus luci-app-nlbwmon
 
 ifneq ($(DUMP),)
   all: dumpinfo
