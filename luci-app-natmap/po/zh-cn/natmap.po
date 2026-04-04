@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+
+msgid "NATMap"
+msgstr "NATMap"
+
+msgid "NATMap Instances"
+msgstr "NATMap 实例"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Protocol"
+msgstr "协议"
+
+msgid "Restrict to address family"
+msgstr "地址族限制"
+
+msgid "IPv4 and IPv6"
+msgstr "IPv4 和 IPv6"
+
+msgid "IPv4 only"
+msgstr "仅 IPv4"
+
+msgid "IPv6 only"
+msgstr "仅 IPv6"
+
+msgid "Interface"
+msgstr "接口"
+
+msgid "Keep-alive interval"
+msgstr "Keep-alive 间隔"
+
+msgid "STUN server"
+msgstr "STUN 服务器"
+
+msgid "HTTP server"
+msgstr "HTTP 服务器"
+
+msgid "For TCP mode"
+msgstr "用于 TCP 模式"
+
+msgid "Bind port"
+msgstr "绑定端口"
+
+msgid "Forward mode"
+msgstr "转发模式"
+
+msgid "Forward target"
+msgstr "转发目标"
+
+msgid "Forward target port"
+msgstr "转发目标端口"
+
+msgid "Notify script"
+msgstr "通知脚本"
+
+msgid "External IP"
+msgstr "外部 IP"
+
+msgid "External Port"
+msgstr "外部端口"

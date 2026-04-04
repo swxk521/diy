@@ -1,0 +1,8 @@
+#!/bin/sh
+# Create default natmap config if not present
+[ -f /etc/config/natmap ] || touch /etc/config/natmap
+
+# Register ACL permissions (18.06 uses /etc/luci-acl or direct session acls)
+uci -q get natmap.@natmap[0] > /dev/null 2>&1 || true
+
+exit 0
