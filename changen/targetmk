@@ -59,7 +59,7 @@ DEFAULT_PACKAGES.router:=\
 	block-mount kmod-fs-exfat kmod-fs-ext4 kmod-fs-vfat libblkid kmod-usb-storage kmod-usb-storage-extras kmod-usb-storage-uas kmod-fs-ntfs3 \
 	curl wget-ssl fdisk lsblk htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr \
 	luci-app-fileassistant luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts-cloudflare \
-	luci-app-samba4 luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
+	luci-app-ksmbd ksmbd-utils luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
 	luci-app-timecontrol luci-app-cowbping luci-app-passwall2 luci-theme-bootstrap-mod \
 	openssh-sftp-server luci-app-sqm zoneinfo-core zoneinfo-asia luci-app-dockerman luci-app-eqosplus luci-app-nlbwmon luci-app-natmap
 
