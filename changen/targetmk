@@ -57,7 +57,7 @@ DEFAULT_PACKAGES.router:=\
 	block-mount coremark kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw kmod-tun smartmontools \
 	iptables-mod-tproxy iptables-mod-extra ipset ip-full default-settings luci luci-proto-ipv6 ca-certificates \
 	block-mount kmod-fs-exfat kmod-fs-ext4 kmod-fs-vfat libblkid kmod-usb-storage kmod-usb-storage-extras kmod-usb-storage-uas kmod-fs-ntfs3 \
-	curl wget-ssl fdisk lsblk htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr \
+	curl wget-ssl fdisk lsblk htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr udp2raw-tunnel udpspeeder \
 	luci-app-fileassistant luci-app-ddns ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts-cloudflare \
 	luci-app-ksmbd ksmbd-utils luci-app-wol luci-app-ttyd luci-app-vlmcsd luci-app-wireguard \
 	luci-app-timecontrol luci-app-cowbping luci-app-passwall2 luci-theme-bootstrap-mod \
