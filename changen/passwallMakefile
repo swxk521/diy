@@ -98,7 +98,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_NaiveProxy
 	bool "Include NaiveProxy"
 	depends on !(arc||armeb||loongarch64||mips||mips64||powerpc||TARGET_gemini)
 	select PACKAGE_naiveproxy
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Libev_Client
 	bool "Include Shadowsocks Libev Client"
@@ -143,64 +143,13 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_tuic_client
 	bool "Include tuic-client"
 	depends on aarch64||arm||i386||x86_64
 	select PACKAGE_tuic-client
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
 	bool "Include V2ray-Plugin (Shadowsocks Plugin)"
 	select PACKAGE_v2ray-plugin
 	default n if aarch64||arm||i386||x86_64
 
-endmenu
-endef
-
-define Package/$(PKG_NAME)/conffiles
-/etc/config/passwall2
-/etc/config/passwall2_server
-/usr/share/passwall2/domains_excluded
-endef
-
-include $(TOPDIR)/feeds/luci/luci.mk
-
-# call BuildPackage - OpenWrt buildroot signature
-config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Rust_Server
-	bool "Include Shadowsocks Rust Server"
-	depends on !i386
-	select PACKAGE_shadowsocks-rust-ssserver
-	default n
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Libev_Client
-	bool "Include ShadowsocksR Libev Client"
-	select PACKAGE_shadowsocksr-libev-ssr-local
-	select PACKAGE_shadowsocksr-libev-ssr-redir
-	default n
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Libev_Server
-	bool "Include ShadowsocksR Libev Server"
-	select PACKAGE_shadowsocksr-libev-ssr-server
-	default n
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_Simple_Obfs
-	bool "Include Simple-Obfs (Shadowsocks Plugin)"
-	select PACKAGE_simple-obfs-client
-	default n
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_SingBox
-	bool "Include Sing-Box"
-	select PACKAGE_sing-box
-	default y if aarch64||arm||i386||x86_64
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_tuic_client
-	bool "Include tuic-client"
-	depends on aarch64||arm||i386||x86_64
-	select PACKAGE_tuic-client
-	default n
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
-	bool "Include V2ray-Plugin (Shadowsocks Plugin)"
-	select PACKAGE_v2ray-plugin
-	default n if aarch64||arm||i386||x86_64
-
-endif
 endmenu
 endef
 
