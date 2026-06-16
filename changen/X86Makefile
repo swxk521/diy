@@ -26,7 +26,7 @@ DEFAULT_PACKAGES += fdisk mkf2fs partx-utils kmod-button-hotplug kmod-e1000e kmo
 		    luci-proto-wireguard luci-app-ttyd luci-app-wol luci-app-ddns bind-host ddns-scripts-aliyun ddns-scripts-dnspod ddns-scripts-cloudflare \
 		    luci-app-natmap luci-app-vlmcsd luci-app-filemanager luci-app-ksmbd luci-app-msd_lite luci-app-dufs \
 		    luci-app-timecontrol luci-app-eqosplus luci-app-passwall luci-app-bandix luci-app-dockerman luci-app-sqm frpc frps \
-		    curl wget-ssl htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr udp2raw-tunnel udpspeeder smartmontools openssh-sftp-server zoneinfo-all arp-scan iputils-arping
+		    curl wget-ssl htop adb tcpdump iperf iperf3-ssl kmod-tcp-bbr udp2raw-tunnel udpspeeder smartmontools openssh-sftp-server zoneinfo-all
 
 $(eval $(call BuildTarget))
 
